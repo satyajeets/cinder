@@ -666,6 +666,15 @@ def cluster_destroy(context, id):
 
 ###################
 
+def get_backup_service_info(context):
+    """Returns entry in services table for backup service
+
+    Can be invoked by any user. Currently being used by system
+    capabilities.
+    """
+    query = model_query(context, models.Service)
+    return query.filter_by(binary='cinder-backup')
+
 
 def _metadata_refs(metadata_dict, meta_class):
     metadata_refs = []

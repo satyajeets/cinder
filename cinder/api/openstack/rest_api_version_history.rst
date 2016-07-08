@@ -165,3 +165,9 @@ user documentation.
          "name": "backup_name",
          "links": "backup_link",
      }
+
+3.10
+---
+  Added a new core API to return Cinder service system capabilities. 
+  Right now only the backup capability is detected.
+

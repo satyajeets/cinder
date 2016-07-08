@@ -30,8 +30,10 @@ from cinder.api.v3 import backups
 from cinder.api.v3 import clusters
 from cinder.api.v3 import consistencygroups
 from cinder.api.v3 import messages
+
 from cinder.api.v3 import snapshot_manage
 from cinder.api.v3 import volume_manage
+from cinder.api.v3 import resource_capabilities as rc
 from cinder.api.v3 import volumes
 from cinder.api import versions
 
@@ -132,3 +134,9 @@ class APIRouter(cinder.api.openstack.APIRouter):
         mapper.resource("backup", "backups",
                         controller=self.resources['backups'],
                         collection={'detail': 'GET'})
+
+        self.resources['resource-capabilities'] = rc.create_resource()
+        mapper.resource("resource-capabilities", "resource-capabilities",
+                        controller=self.resources['resource-capabilities'],
+                        collection={'detail': 'GET'})
+

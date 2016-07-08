@@ -141,6 +141,11 @@ def service_update(context, service_id, values):
     return IMPL.service_update(context, service_id, values)
 
 
+def get_backup_service_info(context):
+    """Returns entry in services table for backup service"""
+    return IMPL.get_backup_service_info(context)
+
+
 ###############
 
 
